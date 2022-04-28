@@ -1,0 +1,273 @@
+// -------------- FONTS ---------------
+@font-face {
+    font-family: "Iosevka Typewriter";
+    src: url("../font/iosevka-typewriter-regular.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Iosevka Typewriter";
+    font-weight: bold;
+    src: url("../font/iosevka-typewriter-bold.ttf") format("truetype");
+}
+
+// -------------- VARIABLES ---------------
+// Palette
+$col-fg: #35312D; 
+$col-bg: #E8E0DA; 
+$col-accent: #FE935A; 
+$col-hover: #b85bad; 
+$col-faded: #B2B2B2; 
+
+// Effects
+$shadow: 0 0 30px rgba(0, 0, 0, 0.07);
+$transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+	transform 0.4s cubic-bezier(0.18, 0.89, 0.53, 1.9);
+
+// -------------- GENERAL ---------------
+html, button, a {
+	color: $col-fg;
+	background-color: $col-bg;
+	font-family: "Iosevka Typewriter", sans-serif;
+	scroll-behavior: smooth;
+}
+
+button {
+	border: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+:focus {
+	outline: 0.2em solid $col-hover;
+	outline-offset: 0.2em;
+}
+
+.padder {
+	color: $col-faded;
+}
+
+// -------------- LINKS ---------------
+a {
+	position: relative;
+	text-decoration: none;
+	padding-bottom: 0.2em;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 0;
+		height: 2px;
+		background-color: $col-hover;
+		transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+  a:hover::before{
+    left: 0;
+    right: auto;
+    width: 100%;
+  }
+}
+
+// -------------- HEADER ---------------
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	margin-top: 0.5em;
+	margin-bottom: 5em;
+}
+
+h1 {
+	margin-bottom: 0.3em;
+	padding: 0.1em 0.2em;
+	background-color: $col-accent;
+}
+
+@media only screen and (min-width: 810px) {
+	header {
+		margin-top: 2em;
+	}
+	
+	h1 {
+		padding: 0.2em 1em;
+	}
+}
+
+// -------------- NEWS ELEMENTS ---------------
+.news-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	
+	width: 100%;
+}
+
+.news {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	padding: 1em;
+	border-left: 0.3em solid $col-accent;
+	margin-bottom: 1em;
+	box-shadow: $shadow;
+	
+	&__info-container {
+		display: flex;
+		justify-content: space-between;
+		
+		margin-left: 0.1em;
+	}
+	
+	&__title {
+		font-size: 1.2rem;
+		font-weight: 700;
+		width: fit-content;
+		margin-bottom: 0.5em;
+		cursor: pointer;
+	}
+}
+
+// Wide Layout
+@media only screen and (min-width: 810px) {
+	.news-container {
+		width: 800px;
+	}
+	
+	.news__info-container {
+		width: 20em;
+	}
+}
+
+// -------------- BUTTONS ---------------
+#news-load,
+#night-mode, 
+#return-top {
+	font-size: 1.1rem;
+	font-weight: 500;
+	cursor: pointer;
+	
+	svg, p {
+		transition: $transition;
+	}
+	
+	p {
+		margin-bottom: 0.1em;
+		font-weight: 700;
+	}
+	
+	&:hover p {
+		color: $col-accent;
+		transform: scale(1.2, 1.2);
+	}
+	
+	svg {
+		width: 1em;
+		height: 1em;
+	}
+	
+	&:hover svg {
+		fill: $col-accent;
+		transform: scale(1.2, 1.2);
+	}
+}
+
+#news-load {
+	background-color: rgba(0,0,0,0);
+	margin: 2em 0;
+	
+	svg {
+		width: 2em;
+		height: 2em;
+	}
+	
+	&:hover svg {
+		transform: scale(1.5, 1.2);
+	}
+}
+
+#night-mode,
+#return-top {
+	color: $col-fg;
+	position: fixed;
+	z-index: 1;
+	padding: 0.3em;
+	background-color: $col-accent;
+	border: 0.3em solid $col-accent;
+	border-radius: 0.3em;
+}
+
+#night-mode {
+	bottom: 1em;
+	left: 1em;
+	
+	svg {
+		width: 1.4em;
+		height: 1.4em;
+	}
+	
+	#sun {
+		display: none;
+	}
+}
+
+#return-top {
+	bottom: 1em;
+	right: 1em;
+	
+	svg {
+		width: 1.5em;
+		height: 1.5em;
+	}
+}
+
+// Wide Layout
+@media only screen and (min-width: 810px) {
+	#night-mode,
+	#return-top {
+		color: $col-faded;
+		padding: 0;
+		background-color: $col-bg;
+		border: 0;
+	}
+	
+	#night-mode {
+		bottom: auto;
+		top: 2em;
+		right: 2em;
+		left: auto;
+	}
+	
+	#return-top {
+		top: auto;
+		bottom: 2em;
+		right: 2em;
+		left: auto;
+	}
+}
+
+// -------------- SCROLLBAR ---------------
+// For Gecko engine
+* {
+  scrollbar-color: $col-faded $col-bg;
+}
+
+// For Webkit and Blink engines
+*::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+*::-webkit-scrollbar-track {
+  background: $col-bg;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: $col-faded;
+}
