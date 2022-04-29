@@ -41,12 +41,13 @@ body {
 }
 
 :focus {
-	outline: 0.2em solid $col-hover;
+	outline: 0.15em dashed $col-hover;
 	outline-offset: 0.2em;
 }
 
 .padder {
 	color: $col-faded;
+	padding: 0 0.5em;
 }
 
 // -------------- LINKS ---------------
@@ -102,7 +103,7 @@ h1 {
 }
 
 // -------------- NEWS ELEMENTS ---------------
-.news-container {
+#story-container {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -110,7 +111,7 @@ h1 {
 	width: 100%;
 }
 
-.news {
+.story {
 	display: flex;
 	flex-direction: column;
 	width: 90%;
@@ -133,21 +134,28 @@ h1 {
 		margin-bottom: 0.5em;
 		cursor: pointer;
 	}
+	
+	// avoids overflowing of long names
+	&__author {
+		white-space: nowrap;
+		max-width: 30%;
+		overflow: hidden;
+	}
 }
 
 // Wide Layout
 @media only screen and (min-width: 810px) {
-	.news-container {
+	#story-container {
 		width: 800px;
 	}
 	
-	.news__info-container {
-		width: 20em;
+	.story__info-container {
+		justify-content: flex-start;
 	}
 }
 
 // -------------- BUTTONS ---------------
-#news-load,
+#story-load,
 #night-mode, 
 #return-top {
 	font-size: 1.1rem;
@@ -179,7 +187,7 @@ h1 {
 	}
 }
 
-#news-load {
+#story-load {
 	background-color: rgba(0,0,0,0);
 	margin: 2em 0;
 	

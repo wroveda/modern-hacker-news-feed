@@ -7,5 +7,9 @@
   "devDependencies": {
     "@parcel/transformer-sass": "^2.5.0",
     "parcel": "^2.5.0"
+  },
+  "dependencies": {
+    "handlebars": "^4.7.7",
+    "wretch": "^1.7.9"
   }
 }
