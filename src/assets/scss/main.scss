@@ -156,8 +156,7 @@ h1 {
 
 // -------------- BUTTONS ---------------
 #story-load,
-#night-mode, 
-#return-top {
+#night-mode {
 	font-size: 1.1rem;
 	font-weight: 500;
 	cursor: pointer;
@@ -201,8 +200,7 @@ h1 {
 	}
 }
 
-#night-mode,
-#return-top {
+#night-mode {
 	color: $col-fg;
 	position: fixed;
 	z-index: 1;
@@ -226,20 +224,9 @@ h1 {
 	}
 }
 
-#return-top {
-	bottom: 1em;
-	right: 1em;
-	
-	svg {
-		width: 1.5em;
-		height: 1.5em;
-	}
-}
-
 // Wide Layout
 @media only screen and (min-width: 810px) {
-	#night-mode,
-	#return-top {
+	#night-mode {
 		color: $col-faded;
 		padding: 0;
 		background-color: $col-bg;
@@ -249,13 +236,6 @@ h1 {
 	#night-mode {
 		bottom: auto;
 		top: 2em;
-		right: 2em;
-		left: auto;
-	}
-	
-	#return-top {
-		top: auto;
-		bottom: 2em;
 		right: 2em;
 		left: auto;
 	}
