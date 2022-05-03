@@ -63,7 +63,7 @@ async function loadStories(amount) {
 // Array of loaded stories
 let stories;
 
-// initialise 'stories-container' with 'amount' of stories
+// Initialise 'stories-container' with 'amount' of stories
 async function initStoriesFeed(amount) {
 	stories = await fetchStoriesInfo(InfoType.LIST, "topstories");
 	
@@ -72,9 +72,20 @@ async function initStoriesFeed(amount) {
 }
 initStoriesFeed(10);
 
+// ------------ SWITCH THEME ----------------
+function switchTheme() {
+	document.querySelector("body").classList.toggle("dark-mode");
+	
+	// Switches icons
+	document.querySelector("#sun").classList.toggle("hidden");
+	document.querySelector("#moon").classList.toggle("hidden");
+}
+
 // --------------- BUTTONS ------------------
 for (let btn of document.querySelectorAll("button")) {
 	btn.addEventListener("click", btn.blur);
 }
 
 document.querySelector("#story-load").addEventListener("click", () => loadStories(10));
+
+document.querySelector("#switch-theme").addEventListener("click", switchTheme);

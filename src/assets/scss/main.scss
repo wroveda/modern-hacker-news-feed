@@ -11,16 +11,25 @@
 
 // -------------- VARIABLES ---------------
 // Palette
-$col-fg: #35312D; 
-$col-bg: #E8E0DA; 
-$col-accent: #FE935A; 
+$col-fg: #35312d; 
+$col-bg: #e8e0da; 
+$col-accent: #fe935a; 
 $col-hover: #b85bad; 
-$col-faded: #B2B2B2; 
+$col-faded: #b2b2b2; 
 
 // Effects
 $shadow: 0 0 30px rgba(0, 0, 0, 0.07);
 $transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
 	transform 0.4s cubic-bezier(0.18, 0.89, 0.53, 1.9);
+
+// -------------- DARK MODE ---------------
+$col-fg-dark: #d9d9d9;
+$col-bg-dark: #303030;
+
+.dark-mode, .dark-mode a, .dark-mode button {
+	color: $col-fg-dark;
+	background-color: $col-bg-dark;
+}
 
 // -------------- GENERAL ---------------
 html, button, a {
@@ -48,6 +57,10 @@ body {
 .padder {
 	color: $col-faded;
 	padding: 0 0.5em;
+}
+
+.hidden {
+	display: none;
 }
 
 // -------------- LINKS ---------------
@@ -86,9 +99,11 @@ header {
 	margin-bottom: 5em;
 }
 
+.dark-mode h1,
 h1 {
 	margin-bottom: 0.3em;
 	padding: 0.1em 0.2em;
+	color: $col-fg;
 	background-color: $col-accent;
 }
 
@@ -97,6 +112,7 @@ h1 {
 		margin-top: 2em;
 	}
 	
+	.dark-mode h1,
 	h1 {
 		padding: 0.2em 1em;
 	}
@@ -156,7 +172,7 @@ h1 {
 
 // -------------- BUTTONS ---------------
 #story-load,
-#night-mode {
+#switch-theme {
 	font-size: 1.1rem;
 	font-weight: 500;
 	cursor: pointer;
@@ -200,7 +216,7 @@ h1 {
 	}
 }
 
-#night-mode {
+#switch-theme {
 	color: $col-fg;
 	position: fixed;
 	z-index: 1;
@@ -210,34 +226,27 @@ h1 {
 	border-radius: 0.3em;
 }
 
-#night-mode {
+#switch-theme {
 	bottom: 1em;
-	left: 1em;
+	right: 1em;
 	
 	svg {
 		width: 1.4em;
 		height: 1.4em;
 	}
-	
-	#sun {
-		display: none;
-	}
 }
 
 // Wide Layout
 @media only screen and (min-width: 810px) {
-	#night-mode {
-		color: $col-faded;
-		padding: 0;
-		background-color: $col-bg;
-		border: 0;
-	}
-	
-	#night-mode {
+	#switch-theme {
 		bottom: auto;
 		top: 2em;
 		right: 2em;
 		left: auto;
+		color: $col-faded;
+		padding: 0;
+		background-color: rgba(0,0,0,0);
+		border: 0;
 	}
 }
 
