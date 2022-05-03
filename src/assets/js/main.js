@@ -45,6 +45,12 @@ async function displayStory(storyID) {
 	let story = await fetchStoriesInfo(InfoType.STORY, storyID);
 	
 	story.time = (new Date(story.time * 1000)).toLocaleDateString();
+	
+	// If the story doesn't have any comments
+	if (story.descendants === undefined) {
+		story.descendants = 0;
+	}
+	
 	container.innerHTML += storyTemplate(story);
 }
 
