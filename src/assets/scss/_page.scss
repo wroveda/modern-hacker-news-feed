@@ -1,0 +1,106 @@
+@use "base";
+
+// -------------- GENERAL ---------------
+html, button, a {
+	color: base.$col-fg;
+	background-color: base.$col-bg;
+	font-family: "Iosevka Typewriter", sans-serif;
+	scroll-behavior: smooth;
+}
+
+button {
+	border: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+:focus {
+	outline: 0.15em dashed base.$col-hover;
+	outline-offset: 0.2em;
+}
+
+.padder {
+	padding: 0 0.5em;
+	color: base.$col-faded;
+}
+
+.hidden {
+	display: none;
+}
+
+// -------------- LINKS ---------------
+a {
+	position: relative;
+	padding-bottom: 0.2em;
+	text-decoration: none;
+	
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		width: 0;
+		height: 2px;
+		background-color: base.$col-hover;
+		transition: width 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+	}
+}
+
+@media (hover: hover) and (pointer: fine) {
+	a:hover::before{
+		left: 0;
+		right: auto;
+		width: 100%;
+	}
+}
+
+// -------------- HEADER ---------------
+header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 0.5em;
+	margin-bottom: 5em;
+}
+
+.dark-mode h1,
+h1 {
+	padding: 0.1em 0.2em;
+	margin-bottom: 0.3em;
+	color: base.$col-fg;
+	background-color: base.$col-accent;
+}
+
+@media only screen and (min-width: 810px) {
+	header {
+		margin-top: 2em;
+	}
+	
+	.dark-mode h1,
+	h1 {
+		padding: 0.2em 1em;
+	}
+}
+
+// -------------- SCROLLBAR ---------------
+// For Gecko engine
+* {
+	scrollbar-color: base.$col-faded base.$col-bg;
+}
+
+// For Webkit and Blink engines
+*::-webkit-scrollbar {
+	width: 0.7em;
+}
+
+*::-webkit-scrollbar-track {
+	background: base.$col-bg;
+}
+
+*::-webkit-scrollbar-thumb {
+	background-color: base.$col-faded;
+}

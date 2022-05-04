@@ -1,0 +1,67 @@
+@use "base";
+
+// -------------- STORY ELEMENTS ---------------
+#story-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.story {
+	display: flex;
+	flex-direction: column;
+	width: 90%;
+	padding: 1em;
+	border-left: 0.3em solid base.$col-accent;
+	margin-bottom: 1em;
+	box-shadow: base.$shadow;
+	
+	&__info-container {
+		display: flex;
+		justify-content: space-between;
+		margin-left: 0.1em;
+	}
+	
+	&__title {
+		width: fit-content;
+		margin-bottom: 0.5em;
+		font-size: 1.2rem;
+		font-weight: 700;
+		cursor: pointer;
+	}
+	
+	// avoids overflowing of long names
+	&__author {
+		max-width: 30%;
+		white-space: nowrap;
+		overflow: hidden;
+	}
+}
+
+// Wide Layout
+@media only screen and (min-width: 810px) {
+	#story-container {
+		width: 800px;
+	}
+	
+	.story__info-container {
+		justify-content: flex-start;
+	}
+}
+
+// --------------- BUTTONS ----------------
+#story-load {
+	@include base.button-svg;
+	margin: 2em 0;
+	background-color: rgba(0,0,0,0);
+	
+	svg {
+		width: 2em;
+		height: 2em;
+	}
+	
+	&:hover svg {
+		transform: scale(1.5, 1.2);
+	}
+}

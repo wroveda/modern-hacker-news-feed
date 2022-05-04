@@ -1,0 +1,48 @@
+@use "base";
+
+// -------------- DARK MODE ---------------
+$col-fg-dark: #d9d9d9;
+$col-bg-dark: #303030;
+
+.dark-mode a,
+.dark-mode button,
+.dark-mode {
+	color: $col-fg-dark;
+	background-color: $col-bg-dark;
+}
+
+// -------------- BUTTONS ---------------
+#switch-theme {
+	@include base.button-svg;
+	position: fixed;
+	z-index: 1;
+	padding: 0.3em;
+	border: 0.3em solid base.$col-accent;
+	border-radius: 0.3em;
+	color: base.$col-fg;
+	background-color: base.$col-accent;
+}
+
+#switch-theme {
+	bottom: 1em;
+	right: 1em;
+	
+	svg {
+		width: 1.4em;
+		height: 1.4em;
+	}
+}
+
+// Wide Layout
+@media only screen and (min-width: 810px) {
+	#switch-theme {
+		bottom: auto;
+		top: 2em;
+		right: 2em;
+		left: auto;
+		padding: 0;
+		border: 0;
+		color: base.$col-faded;
+		background-color: rgba(0,0,0,0);
+	}
+}

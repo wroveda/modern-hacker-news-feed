@@ -1,0 +1,55 @@
+// -------------- FONTS ---------------
+@font-face {
+	font-family: "Iosevka Typewriter";
+	font-weight: 400;
+	src: url("../font/iosevka-typewriter-regular.ttf") format("truetype");
+}
+@font-face {
+	font-family: "Iosevka Typewriter";
+	font-weight: 700;
+	src: url("../font/iosevka-typewriter-bold.ttf") format("truetype");
+}
+
+// -------------- VARIABLES ---------------
+// Palette
+$col-fg: #35312d;
+$col-bg: #e8e0da;
+$col-accent: #fe935a;
+$col-hover: #b85bad;
+$col-faded: #b2b2b2;
+
+// Effects
+$shadow: 0 0 30px rgba(0, 0, 0, 0.07);
+$transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
+	transform 0.4s cubic-bezier(0.18, 0.89, 0.53, 1.9);
+
+// -------------- MIXINS -----------------
+@mixin button-svg {
+	font-size: 1.1rem;
+	font-weight: 500;
+	cursor: pointer;
+	
+	svg, p {
+		transition: $transition;
+	}
+	
+	p {
+		margin-bottom: 0.1em;
+		font-weight: 700;
+	}
+	
+	&:hover p {
+		color: $col-accent;
+		transform: scale(1.2, 1.2);
+	}
+	
+	svg {
+		width: 1em;
+		height: 1em;
+	}
+	
+	&:hover svg {
+		fill: $col-accent;
+		transform: scale(1.2, 1.2);
+	}
+}
