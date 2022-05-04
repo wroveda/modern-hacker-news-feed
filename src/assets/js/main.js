@@ -51,6 +51,11 @@ async function displayStory(storyID) {
 		story.descendants = 0;
 	}
 	
+	// If the story doesn't have an outgoing link, default to comment page
+	if (story.url === undefined) {
+		story.url = "https://news.ycombinator.com/item?id=" + story.id;
+	}
+	
 	container.innerHTML += storyTemplate(story);
 }
 
