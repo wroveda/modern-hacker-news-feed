@@ -38,14 +38,16 @@ $transition: 0.4s cubic-bezier(0.18, 0.89, 0.32, 1.28),
 		font-weight: 700;
 	}
 	
-	&:hover p {
-		color: $col-accent;
-		transform: scale(1.2, 1.2);
-	}
-	
 	svg {
 		width: 1em;
 		height: 1em;
+	}
+}
+
+@mixin button-svg-hover {
+	&:hover p {
+		color: $col-accent;
+		transform: scale(1.2, 1.2);
 	}
 	
 	&:hover svg {

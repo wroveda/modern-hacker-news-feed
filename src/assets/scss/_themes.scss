@@ -15,17 +15,14 @@ $col-bg-dark: #303030;
 #switch-theme {
 	@include base.button-svg;
 	position: fixed;
+	bottom: 1em;
+	right: 1em;
 	z-index: 1;
 	padding: 0.3em;
 	border: 0.3em solid base.$col-accent;
 	border-radius: 0.3em;
 	color: base.$col-fg;
 	background-color: base.$col-accent;
-}
-
-#switch-theme {
-	bottom: 1em;
-	right: 1em;
 	
 	svg {
 		width: 1.4em;
@@ -36,6 +33,7 @@ $col-bg-dark: #303030;
 // Wide Layout
 @media only screen and (min-width: 810px) {
 	#switch-theme {
+		@include base.button-svg-hover;
 		bottom: auto;
 		top: 2em;
 		right: 2em;
