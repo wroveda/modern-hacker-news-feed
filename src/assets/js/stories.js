@@ -1,6 +1,7 @@
 import wretch from "wretch";
 import Handlebars from "handlebars";
 
+// Type of info to request from hacker-news
 const InfoType = Object.freeze({
 	LIST: Symbol("list"),
 	STORY: Symbol("story"),
@@ -62,10 +63,10 @@ async function displayStory(storyID) {
 
 
 let list; // Array of loaded stories
-let curIndex;
+let curIndex; // Index of the current story
 
 // Append stories in sequence.
-async function load(amount) {
+async function loadStories(amount) {
 	amount += curIndex;
 	for (curIndex; curIndex < amount; curIndex++) {
 		displayStory(list[curIndex]);
@@ -78,9 +79,9 @@ async function initFeed(amount) {
 	list = await fetchInfo(InfoType.LIST, "topstories");
 	
 	curIndex = 0;
-	load(amount);
+	loadStories(amount);
 }
 initFeed(10);
 
 // ------------ BUTTONS ------------
-document.querySelector("#story-load").addEventListener("click", () => load(10));
+document.querySelector("#story-load").addEventListener("click", () => loadStories(10));

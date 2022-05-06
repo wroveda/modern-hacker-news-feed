@@ -15,8 +15,8 @@ function switchTheme() {
 
 // Switches to dark theme if it is prefered
 if (window.matchMedia("(prefers-color-scheme: dark)").matches ||
-	localStorage.getItem("dark-mode") == "true") {
-	
+	localStorage.getItem("dark-mode") == "true"
+	) {
 	switchTheme();
 }
 

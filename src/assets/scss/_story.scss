@@ -31,7 +31,7 @@
 		cursor: pointer;
 	}
 	
-	// avoids overflowing of long names
+	// avoids overflowing due to long names
 	&__author {
 		max-width: 30%;
 		white-space: nowrap;
