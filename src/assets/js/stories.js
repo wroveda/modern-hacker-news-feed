@@ -48,11 +48,11 @@ async function displayStory(storyID) {
 	// Template of a news story
 	let template = Handlebars.compile(`\
 	<section class="story">
-	<a class="story__title" href="{{url}}">{{title}}</a>\
+	<a target="_blank" class="story__title" href="{{url}}">{{title}}</a>\
 	<div class="story__info-container">\
-	<a class="story__author" href="https://news.ycombinator.com/user?id={{by}}">By {{by}}</a>\
+	<a target="_blank" class="story__author" href="https://news.ycombinator.com/user?id={{by}}">By {{by}}</a>\
 	<div class="padder">|</div>\
-	<a href="https://news.ycombinator.com/item?id={{id}}">({{descendants}}) Comments</a>\
+	<a target="_blank" href="https://news.ycombinator.com/item?id={{id}}">({{descendants}}) Comments</a>\
 	<div class="padder">|</div>\
 	<div>{{time}}</div>\
 	</div>
