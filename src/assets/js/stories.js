@@ -65,10 +65,13 @@ async function displayStory(storyID) {
 let list; // Array of loaded stories
 let curIndex; // Index of the current story
 
-// Append stories in sequence.
+// Append stories in sequence
 async function loadStories(amount) {
 	amount += curIndex;
 	for (curIndex; curIndex < amount; curIndex++) {
+		// stops if all of the stories have been shown
+		if (curIndex >= list.length) { return; }
+		
 		displayStory(list[curIndex]);
 	}
 }
